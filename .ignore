@@ -23,6 +23,7 @@ Thumbs.db
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
 build/
+cocos2d/cocos/platform/android/libcocos2dx/build/
 # Signing files
 .signing/
 # User-specific configurations
