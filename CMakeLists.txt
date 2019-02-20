@@ -24,14 +24,14 @@
 # ****************************************************************************/
 
 cmake_minimum_required(VERSION 3.6)
-
+MESSAGE( STATUS "jianliu  CocosBuildSet key = ${CocosBuildSet}.")
 set(APP_NAME MyGame)
 
 project(${APP_NAME})
 
 set(COCOS2DX_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cocos2d)
 set(CMAKE_MODULE_PATH ${COCOS2DX_ROOT_PATH}/cmake/Modules/)
-MESSAGE( STATUS "jianliu  CocosBuildSet key = ${CocosBuildSet}.")
+
 
 include(CocosBuildSet)
 add_subdirectory(${COCOS2DX_ROOT_PATH}/cocos ${ENGINE_BINARY_PATH}/cocos/core)
