@@ -51,6 +51,7 @@
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
 		CF5B8A4822166BA800808AED /* BlueSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAA663322166AAC001CA55F /* BlueSprite.png */; };
 		CF5B8A4A22166BAA00808AED /* BlueSprite.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAA663322166AAC001CA55F /* BlueSprite.png */; };
+		CF9F0CE7221C3168004EE67E /* CacaScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF9F0CE5221C3168004EE67E /* CacaScene.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -138,6 +139,8 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CF9F0CE5221C3168004EE67E /* CacaScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CacaScene.cpp; sourceTree = "<group>"; };
+		CF9F0CE6221C3168004EE67E /* CacaScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacaScene.h; sourceTree = "<group>"; };
 		CFAA663322166AAC001CA55F /* BlueSprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueSprite.png; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -289,6 +292,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				CF9F0CE5221C3168004EE67E /* CacaScene.cpp */,
+				CF9F0CE6221C3168004EE67E /* CacaScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -464,6 +469,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				CF9F0CE7221C3168004EE67E /* CacaScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

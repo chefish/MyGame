@@ -24,6 +24,8 @@
 
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+//#include "CacaScene.h"
+#include "CacaScene.h"
 
 USING_NS_CC;
 
@@ -114,7 +116,9 @@ bool HelloWorld::init()
         // position the sprite on the center of the screen
         sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
         auto moveBy = MoveBy::create(2, Vec2(50, 0));
+        auto scaleBy = ScaleBy::create(2.0f, 3.0f);
         sprite->runAction(moveBy);
+        sprite->runAction(scaleBy);
 
         // add the sprite as a child to this layer
         this->addChild(sprite, 0);
@@ -125,8 +129,12 @@ bool HelloWorld::init()
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
+    auto scene = CacaScene::scene();
+
+    Director::getInstance()->pushScene(scene);
+    
     //Close the cocos2d-x game scene and quit the application
-    Director::getInstance()->end();
+//    Director::getInstance()->end();
 
     /*To navigate back to native iOS screen(if present) without quitting the application  ,do not use Director::getInstance()->end() as given above,instead trigger a custom event created in RootViewController.mm as below*/
 

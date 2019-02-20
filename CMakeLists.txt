@@ -51,18 +51,20 @@ endif()
 list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/HelloWorldScene.cpp
+     Classes/CacaScene.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/HelloWorldScene.h
+     Classes/CacaScene.h
      )
 
 if(ANDROID)
     # change APP_NAME to the share library name for Android, it's value depend on AndroidManifest.xml
     set(APP_NAME MyGame)
-#    list(APPEND GAME_SOURCE
-#         proj.android/app/src/cpp/main.cpp
-#         )
+    list(APPEND GAME_SOURCE
+         proj.android/app/src/cpp/main.cpp
+         )
 elseif(LINUX)
     list(APPEND GAME_SOURCE
          proj.linux/main.cpp
