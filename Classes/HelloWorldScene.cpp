@@ -26,28 +26,26 @@
 #include "SimpleAudioEngine.h"
 //#include "CacaScene.h"
 #include "CacaScene.h"
+#include "../cocos2d/cocos/deprecated/CCDeprecated.h"
+#include "../cocos2d/cocos/platform/android/jni/JniHelper.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene()
-{
+Scene *HelloWorld::createScene() {
     return HelloWorld::create();
 }
 
 // Print useful error message instead of segfaulting when files are not there.
-static void problemLoading(const char* filename)
-{
+static void problemLoading(const char *filename) {
     printf("Error while loading: %s\n", filename);
     printf("Depending on how you compiled you might have to add 'Resources/' in front of filenames in HelloWorldScene.cpp\n");
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
-{
+bool HelloWorld::init() {
     //////////////////////////////
     // 1. super init first
-    if ( !Scene::init() )
-    {
+    if (!Scene::init()) {
         return false;
     }
 
@@ -60,21 +58,20 @@ bool HelloWorld::init()
 
     // add a "close" icon to exit the progress. it's an autorelease object
     auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+            "CloseNormal.png",
+            "CloseSelected.png",
+            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
 
+    closeItem->setScaleX(5);
+    closeItem->setScaleY(5);
     if (closeItem == nullptr ||
         closeItem->getContentSize().width <= 0 ||
-        closeItem->getContentSize().height <= 0)
-    {
+        closeItem->getContentSize().height <= 0) {
         problemLoading("'CloseNormal.png' and 'CloseSelected.png'");
-    }
-    else
-    {
-        float x = origin.x + visibleSize.width - closeItem->getContentSize().width/2;
-        float y = origin.y + closeItem->getContentSize().height/2;
-        closeItem->setPosition(Vec2(x,y));
+    } else {
+        float x = origin.x + visibleSize.width - closeItem->getContentSize().width * 5 / 2;
+        float y = origin.y + closeItem->getContentSize().height * 5 / 2;
+        closeItem->setPosition(Vec2(x, y));
     }
 
     // create menu, it's an autorelease object
@@ -107,14 +104,12 @@ bool HelloWorld::init()
 //    auto sprite = Sprite::create("CloseNormal.png");
     auto sprite = Sprite::create("BlueSprite.png");
 
-    if (sprite == nullptr)
-    {
+    if (sprite == nullptr) {
         problemLoading("'HelloWorld.png'");
-    }
-    else
-    {
+    } else {
         // position the sprite on the center of the screen
-        sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+        sprite->setPosition(
+                Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
         auto moveBy = MoveBy::create(2, Vec2(50, 0));
         auto scaleBy = ScaleBy::create(2.0f, 3.0f);
         sprite->runAction(moveBy);
@@ -127,12 +122,13 @@ bool HelloWorld::init()
 }
 
 
-void HelloWorld::menuCloseCallback(Ref* pSender)
-{
-    auto scene = CacaScene::scene();
+void HelloWorld::menuCloseCallback(Ref *pSender) {
 
-    Director::getInstance()->pushScene(scene);
-    
+    showMessage();
+//    auto scene = CacaScene::scene();
+//
+//    Director::getInstance()->pushScene(scene);
+
     //Close the cocos2d-x game scene and quit the application
 //    Director::getInstance()->end();
 
@@ -142,4 +138,17 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //_eventDispatcher->dispatchEvent(&customEndEvent);
 
 
+}
+
+void HelloWorld::showMessage() {
+    JNIEnv *env = JniHelper::getEnv();
+
+    jstring jstr = env->NewStringUTF("This comes from jni.");
+    jclass clazz = env->FindClass("org/cocos2dx/AppActivity");
+    jmethodID messageMe = env->GetMethodID(clazz, "showMessage", "()V");
+    jobject activity = JniHelper::getActivity();
+    env->CallVoidMethod(activity, messageMe);
+
+//    const char* str = (*env)->GetStringUTFChars(env,(jstring) result, NULL); // should be released but what a heck, it's a tutorial :)
+//    printf("%s\n", str);
 }

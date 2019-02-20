@@ -24,7 +24,10 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.util.Log;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 public class AppActivity extends Cocos2dxActivity {
@@ -45,4 +48,21 @@ public class AppActivity extends Cocos2dxActivity {
         
     }
 
+    public void showMessage()
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("showMessage", "showMessage");
+                AlertDialog.Builder builder=new AlertDialog.Builder(AppActivity.this);
+                builder.setTitle("C++调用Android");
+                builder.setMessage("这是一个C++调用Android的例子");
+                builder.show();
+            }
+        });
+
+    }
+
+    public native String stringFromJNI();
+    public native String track();
 }
