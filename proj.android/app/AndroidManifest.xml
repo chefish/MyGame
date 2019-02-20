@@ -32,6 +32,7 @@
         </activity>
 
         <activity android:name="org.cocos2dx.AActivity"></activity>
+        <activity android:name="org.cocos2dx.AppBActivity"></activity>
     </application>
 
 </manifest>

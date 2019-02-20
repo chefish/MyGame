@@ -15,4 +15,8 @@ public class AActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aa);
     }
+
+    public String getScene(){
+        return "A";
+    }
 }
